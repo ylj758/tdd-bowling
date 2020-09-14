@@ -27,3 +27,28 @@
 - 使用TDD方式实现上述需求，注意TDD Cycle（红-绿-重构）
 - YAGNI
 - 小步提交
+
+### Task
+
+>* 1.Given strike every time  
+When read  
+Then return 300
+>* 2.Given tenth round: strike  
+When read  
+Then return 10 + new round score  
+forExample:  
+10 10 = 10+10  
+10 2 10 3 = 10+10+3  
+10 2 3 = 10+2+3
+>* 3.Given tenth round: spare    
+When read  
+Then return 10 + continued one pitch score  
+forExample:  
+2 10 2 = 10+2
+>* 4.Given tenth round: no strike or spare  
+When read  
+Then return first pitch score + second pitch score  
+forExample:  
+2 3 = 2+3
+0 0 = 0+0
+

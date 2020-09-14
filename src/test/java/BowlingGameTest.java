@@ -29,4 +29,13 @@ public class BowlingGameTest {
         assertEquals(61+13, bowlingGame.calculateBowlingGameScore(pinArray));
     }
 
+    @Test
+    public void shold_return_ten_add_new_round_score_when_tenth_round_not_strike_or_spare(){
+        BowlingGame bowlingGame = new BowlingGame();
+        int[] pinArray1 = {1,1,1,1,10,1,1,10,10,10,1,10,3,1,1,1,2,3};
+        int[] pinArray2 = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+        assertEquals(61+5, bowlingGame.calculateBowlingGameScore(pinArray1));
+        assertEquals(0+0, bowlingGame.calculateBowlingGameScore(pinArray2));
+    }
+
 }
