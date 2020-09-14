@@ -10,12 +10,13 @@ public class BowlingGame {
         int previousNineRoundsScore = tenthRoundStartIndexAndPreviousNineRoundsScore[1];
         int result = previousNineRoundsScore;
         if(pinArray[tenthRoundStartIndex] == 10){
-            result += 10 + getEleventhRoundScore(pinArray, tenthRoundStartIndex);
+            result += 10;
         }
+        result += getlastRoundScore(pinArray, tenthRoundStartIndex);
         return result;
     }
 
-    private Integer getEleventhRoundScore(int[] pinArray, int tenthRoundStartIndex) {
+    private Integer getlastRoundScore(int[] pinArray, int tenthRoundStartIndex) {
         int leftPinArraySize = pinArray.length-tenthRoundStartIndex-1;
         switch (leftPinArraySize){
             case 1:
