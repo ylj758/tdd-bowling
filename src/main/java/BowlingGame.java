@@ -2,9 +2,6 @@ import java.util.Arrays;
 
 public class BowlingGame {
     public int calculateBowlingGameScore(int[] pinArray) {
-        if (pinArray.length == 12 && isStrikeEveryTime(pinArray)) {
-            return 300;
-        }
         int[] tenthRoundStartIndexAndPreviousNineRoundsScore = getTenthRoundStartIndexAndPreviousNineRoundsScore(pinArray);
         int tenthRoundStartIndex = tenthRoundStartIndexAndPreviousNineRoundsScore[0];
         int previousNineRoundsScore = tenthRoundStartIndexAndPreviousNineRoundsScore[1];
@@ -26,7 +23,7 @@ public class BowlingGame {
             case 3:
                 return pinArray[tenthRoundStartIndex+2] + pinArray[tenthRoundStartIndex+3];
         }
-        return null;
+        return 0;
     }
 
     private int[] getTenthRoundStartIndexAndPreviousNineRoundsScore(int[] pinArray) {
@@ -36,12 +33,12 @@ public class BowlingGame {
         int tenthRoundStartIndex = 0;
         for (int i = 0; i < pinArray.length && gameRound<10; i++) {
                 if(pinArray[i]<10 && pinArray[i+1]<10){
-                    previousNineRoundsScore += pinArray[i]+pinArray[i+1];
+                    previousNineRoundsScore += pinArray[i] + pinArray[i+1];
                     i++;
                 }else if(pinArray[i]==10){
-                    previousNineRoundsScore +=10;
+                    previousNineRoundsScore +=10 + pinArray[i+1] + pinArray[i+2];
                 }else if(pinArray[i]<10 && pinArray[i+1]==10){
-                    previousNineRoundsScore += pinArray[i+1]+pinArray[i+2];
+                    previousNineRoundsScore += pinArray[i+1] + pinArray[i+2];
                     i += 2;
                 }
                 gameRound ++;
@@ -50,15 +47,6 @@ public class BowlingGame {
         tenthRoundStartIndexAndPreviousNineRoundsScore[0] = tenthRoundStartIndex;
         tenthRoundStartIndexAndPreviousNineRoundsScore[1] = previousNineRoundsScore;
         return tenthRoundStartIndexAndPreviousNineRoundsScore;
-    }
-
-    private boolean isStrikeEveryTime(int[] pinArray) {
-        for (int pinNumber : pinArray) {
-            if (pinNumber != 10) {
-                return false;
-            }
-        }
-        return true;
     }
 
 }
