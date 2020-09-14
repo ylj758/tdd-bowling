@@ -10,4 +10,15 @@ public class BowlingGameTest {
         int[] pinArray = {10,10,10,10,10,10,10,10,10,10,10,10};
         assertEquals(300, bowlingGame.calculateBowlingGameScore(pinArray));
     }
+    @Test
+    public void shold_return_ten_add_new_round_score_when_tenth_round_strike(){
+        BowlingGame bowlingGame = new BowlingGame();
+        int[] pinArrayNextRoundStrike = {1,1,1,1,10,1,1,10,10,10,1,10,3,1,1,10,10};
+        int[] pinArrayNextRoundSpare = {1,1,1,1,10,1,1,10,10,10,1,10,3,1,1,10,2,10,3};
+        int[] pinArrayNextRoundNoStrikeOrSpare = {1,1,1,1,10,1,1,10,10,10,1,10,3,1,1,10,2,3};
+        assertEquals(61+10+10, bowlingGame.calculateBowlingGameScore(pinArrayNextRoundStrike));
+        assertEquals(61+10+13, bowlingGame.calculateBowlingGameScore(pinArrayNextRoundSpare));
+        assertEquals(61+10+5, bowlingGame.calculateBowlingGameScore(pinArrayNextRoundNoStrikeOrSpare));
+    }
+
 }
