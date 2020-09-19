@@ -5,10 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BowlingGameTest {
 
-
-//>* 3.Given Previous nine rounds:strike and spare and no strike or spare，tenth round: strike
-//    When read
-//    Then return Previous nine rounds strike and spare and no strike or spare score + new round score
 //>* 4.Given Previous nine rounds:all strike，tenth round: spare
 //    When read
 //    Then return Previous nine rounds all strike score + 10 + continued one pitch score
@@ -42,6 +38,13 @@ public class BowlingGameTest {
         BowlingGame bowlingGame = new BowlingGame();
         int[] pinArray = {10,10,1,10,3,10,10,10,10,10,10,10,10,10};
         assertEquals(21+21+13+30+30+30+30+30+30+10+10+10, bowlingGame.calculateBowlingGameScore(pinArray));
+    }
+
+    @Test
+    public void shold_previous_nine_rounds_strike_and_spare_and_no_strike_or_spare_tenth_round_strike(){
+        BowlingGame bowlingGame = new BowlingGame();
+        int[] pinArray = {1,3,10,1,10,3,10,10,10,10,10,10,10,10,10};
+        assertEquals(4+21+13+30+30+30+30+30+30+10+10+10, bowlingGame.calculateBowlingGameScore(pinArray));
     }
 
     @Test
