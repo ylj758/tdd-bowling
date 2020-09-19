@@ -62,10 +62,9 @@ public class BowlingGameTest {
     }
 
     @Test
-    public void shold_previous_nine_rounds_strike_and_spare_and_no_strike_or_spare_tenth_round_no_strike_or_spare(){
+    public void shold_previous_nine_rounds_strike_and_spare_and_no_strike_or_spare_tenth_round_no_strike_or_spare() {
         BowlingGame bowlingGame = new BowlingGame();
-        int[] pinArray = {1,3,10,1,10,3,10,10,10,10,10,10,1,2};
+        int[] pinArray = {1, 3, 10, 1, 10, 3, 10, 10, 10, 10, 10, 10, 1, 2};
         assertEquals(194, bowlingGame.calculateBowlingGameScore(pinArray));
     }
-
 }
